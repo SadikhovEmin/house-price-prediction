@@ -1,3 +1,5 @@
+import pickle
+
 import bcolors as b
 import pandas as pd
 import seaborn as sns
@@ -73,6 +75,7 @@ if __name__ == '__main__':
     print(b.OK + 'Prediction' + b.END)
     print(df)
 
-    # Regression Evaluation
-    print(b.OK + 'Set evaluation:\n_____________________________________' + b.END)
-    print_evaluate(y_test, pred)
+    ''' Saving the model '''
+    pickle_out = open('finalized_model.sav', 'wb')
+    pickle.dump(lin_reg, pickle_out)
+    pickle_out.close()
